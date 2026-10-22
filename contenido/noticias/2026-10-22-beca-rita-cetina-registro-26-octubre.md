@@ -5,6 +5,10 @@ tema: sociedad
 resumen: "El gobierno federal informó que el registro será en becaritacetina.gob.mx y que en 2026 se inscribieron 400 mil jóvenes más al Bachillerato Nacional que el año anterior."
 fuentes:
   - "Rotativo | https://rotativo.com.mx/sheinbaum-400-mil-jovenes-mas-bachillerato-nacional-becas"
+imagen: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Sucursal_del_Banco_del_Bienestar_en_Oaxaca.jpg/1280px-Sucursal_del_Banco_del_Bienestar_en_Oaxaca.jpg"
+imagen_credito: "ProtoplasmaKid (CC BY-SA 4.0)"
+imagen_fuente: "https://commons.wikimedia.org/wiki/File:Sucursal_del_Banco_del_Bienestar_en_Oaxaca.jpg"
+imagen_alt: "Fachada de una sucursal del Banco del Bienestar en la ciudad de Oaxaca"
 autor: "Redacción Vivir en Paz"
 ia: si
 ---

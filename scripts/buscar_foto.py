@@ -10,7 +10,7 @@ Imprime candidatas con licencia libre (CC0, dominio público, CC BY, CC BY-SA) y
 campos listos para pegar en el encabezado de la nota. Excluye licencias no libres,
 imágenes pequeñas y archivos que no son fotos (SVG, PDF, mapas, logotipos).
 """
-import argparse, html, json, re, sys, urllib.parse, urllib.request
+import argparse, html, json, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 API = "https://commons.wikimedia.org/w/api.php"
 AGENTE = "VivirEnPazTV-Redaccion/1.0 (https://vivirenpaz.tv; y@vivirenpaz.org)"
@@ -28,8 +28,15 @@ def buscar(consulta, maximo):
         "prop": "imageinfo", "iiprop": "url|size|extmetadata", "iiurlwidth": "1280",
     }
     req = urllib.request.Request(API + "?" + urllib.parse.urlencode(params), headers={"User-Agent": AGENTE})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        datos = json.load(r)
+    for intento in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=30) as r:
+                datos = json.load(r)
+            break
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or intento == 4: raise
+            espera = int(e.headers.get("Retry-After") or 0) or 5 * (intento + 1)
+            print(f"(Wikimedia pide esperar {espera} s…)", file=sys.stderr); time.sleep(min(espera, 60))
     paginas = sorted((datos.get("query") or {}).get("pages", {}).values(), key=lambda p: p.get("index", 0))
     salida = []
     for p in paginas:
@@ -46,7 +53,7 @@ def buscar(consulta, maximo):
         salida.append({
             "titulo": titulo,
             "descripcion": limpiar(meta.get("ImageDescription", {}).get("value"))[:200],
-            "imagen": info.get("thumburl") or info.get("url"),
+            "imagen": (info.get("thumburl") or info.get("url") or "").split("?")[0],
             "imagen_credito": f"{autor} ({licencia})",
             "imagen_fuente": info.get("descriptionurl"),
         })

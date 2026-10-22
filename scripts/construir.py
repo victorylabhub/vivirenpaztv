@@ -126,8 +126,8 @@ def cargar_notas():
                 fuentes.append((nombre.strip(), url))
             imagen = None
             if d.get("imagen"):
-                if not re.match(r"^https://upload\.wikimedia\.org/\S+$", d["imagen"]):
-                    raise ErrorNota(f"{f.name}: 'imagen' debe ser una URL de https://upload.wikimedia.org/")
+                if not re.match(r"^https://(upload|thumb)\.wikimedia\.org/[^\s?]+$", d["imagen"]):
+                    raise ErrorNota(f"{f.name}: 'imagen' debe ser una URL de upload.wikimedia.org o thumb.wikimedia.org, sin parámetros")
                 for k in ("imagen_credito", "imagen_fuente", "imagen_alt"):
                     if not d.get(k): raise ErrorNota(f"{f.name}: con 'imagen' es obligatorio '{k}'")
                 if not d["imagen_fuente"].startswith("https://commons.wikimedia.org/"):

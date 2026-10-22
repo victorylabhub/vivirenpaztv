@@ -5,6 +5,10 @@ tema: nacional
 resumen: "El Servicio Meteorológico Nacional prevé lluvias muy fuertes en Veracruz, Oaxaca, Tabasco y Chiapas este 22 de octubre, mientras Vance se mantiene a más de 700 km de Guerrero."
 fuentes:
   - "Infobae México | https://www.infobae.com/mexico/2026/10/22/en-vivo-clima-cdmx-y-resto-de-mexico-hoy-jueves-22-de-octubre-frente-frio-provocara-lluvias-mientras-vance-se-estaciona-en-el-pacifico/"
+imagen: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Parroquia_de_San_Miguel_Arc%C3%A1ngel_lluvia.jpg/1280px-Parroquia_de_San_Miguel_Arc%C3%A1ngel_lluvia.jpg"
+imagen_credito: "A01701617 (CC BY-SA 4.0)"
+imagen_fuente: "https://commons.wikimedia.org/wiki/File:Parroquia_de_San_Miguel_Arc%C3%A1ngel_lluvia.jpg"
+imagen_alt: "Calle mojada bajo la lluvia frente a la Parroquia de San Miguel Arcángel, en San Miguel de Allende, Guanajuato"
 autor: "Redacción Vivir en Paz"
 ia: si
 ---

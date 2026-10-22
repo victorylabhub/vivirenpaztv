@@ -93,7 +93,7 @@ Cada nota lleva, cuando sea posible, una **foto con licencia libre de Wikimedia 
    - No usar fotos de personas privadas ni de menores.
    - No usar fotos de víctimas, de violencia explícita ni de hechos distintos presentados como si fueran el de la nota.
    - Las fotos de funcionarios o figuras públicas solo se usan si la nota trata sobre ellas.
-3. Copiar al encabezado los cuatro campos que imprime el script y escribir `imagen_alt` describiendo lo que se ve:
+3. Copiar al encabezado los cuatro campos (la URL de `imagen` puede ser de upload.wikimedia.org o thumb.wikimedia.org, sin parámetros después de `?`) que imprime el script y escribir `imagen_alt` describiendo lo que se ve:
 
    ```markdown
    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/…/1280px-….jpg"

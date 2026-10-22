@@ -6,6 +6,10 @@ resumen: "El bachillerato en línea de la SEP es gratuito y quienes lo cursen si
 fuentes:
   - "N+ | https://www.nmas.com.mx/sociedad/programas-sociales/abre-registro-para-prepa-en-linea-y-recibir-la-beca-benito-juarez-asi-es-el-proceso/"
   - "Rotativo | https://rotativo.com.mx/sheinbaum-400-mil-jovenes-mas-bachillerato-nacional-becas"
+imagen: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Secretar%C3%ADa_de_Educaci%C3%B3n_P%C3%BAblica_Murales.jpg/1280px-Secretar%C3%ADa_de_Educaci%C3%B3n_P%C3%BAblica_Murales.jpg"
+imagen_credito: "Mezma (CC BY-SA 4.0)"
+imagen_fuente: "https://commons.wikimedia.org/wiki/File:Secretar%C3%ADa_de_Educaci%C3%B3n_P%C3%BAblica_Murales.jpg"
+imagen_alt: "Mural de Diego Rivera sobre una puerta del edificio de la Secretaría de Educación Pública"
 autor: "Redacción Vivir en Paz"
 ia: si
 ---

@@ -5,6 +5,10 @@ tema: internacional
 resumen: "El presidente Luiz Inácio Lula da Silva y Flávio Bolsonaro disputarán la presidencia el domingo 25 de octubre; ese mismo día Serbia celebra elecciones parlamentarias anticipadas."
 fuentes:
   - "Agencia EFE vía Unitel | https://unitel.bo/noticias/agencias/jueves-22-de-octubre-de-2026-0200-gmt-AN24296060"
+imagen: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Pal%C3%A1cio_do_Planalto_em_2020.jpg/1280px-Pal%C3%A1cio_do_Planalto_em_2020.jpg"
+imagen_credito: "Senado Federal (CC BY 2.0)"
+imagen_fuente: "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_do_Planalto_em_2020.jpg"
+imagen_alt: "Palacio de Planalto, sede de la Presidencia de Brasil, en Brasilia"
 autor: "Redacción Vivir en Paz"
 ia: si
 ---

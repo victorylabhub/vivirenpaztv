@@ -6,6 +6,10 @@ resumen: "El 21 de octubre el peso perdió 1.32% frente al dólar, según datos 
 fuentes:
   - "El Financiero | https://www.elfinanciero.com.mx/mercados/2026/10/21/peso-dolar-tipo-de-cambio-precio-hoy-21-de-octubre-de-2026/"
   - "Excélsior | https://www.excelsior.com.mx/finanzas/peso-arranca-semana-con-leve-ganancia-precio-dolar-hoy-19-octubre-2026"
+imagen: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Banco_de_M%C3%A9xico_-_Fachada%2C_Ciudad_de_M%C3%A9xico.jpg/1280px-Banco_de_M%C3%A9xico_-_Fachada%2C_Ciudad_de_M%C3%A9xico.jpg"
+imagen_credito: "Juan Carlos Fonseca Mata (CC BY-SA 4.0)"
+imagen_fuente: "https://commons.wikimedia.org/wiki/File:Banco_de_M%C3%A9xico_-_Fachada,_Ciudad_de_M%C3%A9xico.jpg"
+imagen_alt: "Fachada del edificio del Banco de México en el Centro Histórico de la Ciudad de México"
 autor: "Redacción Vivir en Paz"
 ia: si
 ---
