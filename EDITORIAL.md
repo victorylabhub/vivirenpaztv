@@ -75,8 +75,36 @@ Próximos pasos conocidos.
 
 - `tema` debe ser uno de: `nacional`, `seguridad`, `justicia`, `politica`, `economia`, `juventudes`, `sociedad`, `internacional`, `cultura`, `medio-ambiente`.
 - `fecha`: hora de publicación en la hora del centro de México (UTC-06:00). Escalonar las notas del lote por minutos (06:00, 06:03, 06:06…) para que se ordenen.
+- Campos de foto (opcionales, ver «Fotografía»): `imagen`, `imagen_credito`, `imagen_fuente`, `imagen_alt`.
 - Campos opcionales: `slug` (URL personalizada), `borrador: si` (no se publica), `correccion: "Texto de la corrección"` (se muestra al pie de la nota).
 - El cuerpo admite: párrafos, `##` y `###`, listas con `-`, citas con `>`, **negritas**, *cursivas* y [enlaces](https://…).
+
+## Fotografía
+
+Cada nota lleva, cuando sea posible, una **foto con licencia libre de Wikimedia Commons**. Está prohibido usar fotos de otros medios, agencias, redes sociales o bancos comerciales.
+
+1. Buscar candidatas con el script, usando términos concretos del lugar, institución o tema (pruebe en español y en inglés):
+
+   ```bash
+   python3 scripts/buscar_foto.py "Palacio Nacional Ciudad de México"
+   ```
+
+2. Elegir una foto que **ilustre** la nota sin inducir a error. Debe ser el lugar, el edificio, la institución o un tema genérico relacionado, por ejemplo la fachada del Banco de México para una nota de tipo de cambio.
+   - No usar fotos de personas privadas ni de menores.
+   - No usar fotos de víctimas, de violencia explícita ni de hechos distintos presentados como si fueran el de la nota.
+   - Las fotos de funcionarios o figuras públicas solo se usan si la nota trata sobre ellas.
+3. Copiar al encabezado los cuatro campos que imprime el script y escribir `imagen_alt` describiendo lo que se ve:
+
+   ```markdown
+   imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/…/1280px-….jpg"
+   imagen_credito: "Nombre del autor (CC BY-SA 4.0)"
+   imagen_fuente: "https://commons.wikimedia.org/wiki/File:….jpg"
+   imagen_alt: "Fachada del edificio del Banco de México en el Centro Histórico"
+   ```
+
+4. Si no hay una foto adecuada, se omiten los cuatro campos y la nota se muestra con la ilustración del tema. Es preferible no poner foto a poner una que no corresponda.
+
+El sitio muestra al pie de la foto el aviso «Imagen ilustrativa» con el crédito y el enlace a la licencia, como exigen las licencias Creative Commons.
 
 ## Correcciones y retiros
 

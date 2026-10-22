@@ -338,13 +338,15 @@ footer a:hover{text-decoration:underline;color:#fff}
 .nh:hover{transform:translateY(-4px);box-shadow:0 24px 40px -26px rgba(42,15,87,.55)}
 .nh .banda{aspect-ratio:16/8;display:grid;place-items:center;position:relative;color:rgba(255,255,255,.9)}
 .nh .banda .ic{width:30%;height:55%;max-width:110px}
-.nh .banda b{position:absolute;left:14px;top:12px;background:rgba(0,0,0,.25);color:#fff;font-size:.78rem;padding:3px 10px;border-radius:999px}
+.nh .banda img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nh .banda b{z-index:1;position:absolute;left:14px;top:12px;background:rgba(0,0,0,.25);color:#fff;font-size:.78rem;padding:3px 10px;border-radius:999px}
 .nh .tx{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px}
 .nh time{font-size:.85rem;color:var(--suave)}.nh h3{font-size:1.15rem}.nh p{color:var(--suave);font-size:.95rem}
 @media(min-width:860px){.nh.uno{grid-row:span 2}.nh.uno h3{font-size:1.6rem}.nh.uno .banda{aspect-ratio:auto;flex:1;min-height:240px}}
 .nh .tm{color:var(--olivo);font-weight:700}
 .nh.chica p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 @media(min-width:860px){.nh.chica .banda{display:none}}
+.nh .banda{overflow:hidden}
 </style>
 </head>
 <body>
@@ -754,7 +756,7 @@ fetch("/noticias/ultimas.json",{cache:"no-store"}).then(r=>r.ok?r.json():[]).the
   if(!ns.length) return;
   const sec=document.getElementById("noticias"); sec.hidden=false;
   document.getElementById("noticias-home").innerHTML = ns.slice(0,5).map((n,i)=>`<a class="nh ${i===0?"uno":"chica"}" href="${esc(n.url)}" data-revelar style="--d:${i*0.06}s">
-    <div class="banda" style="background:linear-gradient(140deg,${n.colores[0]},${n.colores[1]})"><b>${esc(n.tema)}</b><span class="ic i-${esc(n.icono)}" aria-hidden="true"></span></div>
+    <div class="banda" style="background:linear-gradient(140deg,${n.colores[0]},${n.colores[1]})"><b>${esc(n.tema)}</b>${n.imagen?`<img src="${esc(n.imagen)}" alt="${esc(n.imagen_alt||"")}" loading="lazy">`:`<span class="ic i-${esc(n.icono)}" aria-hidden="true"></span>`}</div>
     <div class="tx"><time datetime="${esc(n.fecha)}"><span class="tm">${esc(n.tema)}</span> · ${esc(n.fecha_texto)}</time><h3>${esc(n.titulo)}</h3><p>${esc(n.resumen)}</p></div></a>`).join("");
   document.querySelectorAll("#noticias [data-revelar]").forEach(el=>el.classList.add("visto"));
 }).catch(()=>{});

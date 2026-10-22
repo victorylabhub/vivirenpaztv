@@ -124,6 +124,15 @@ def cargar_notas():
                 if not url.startswith(("http://", "https://")):
                     raise ErrorNota(f"{f.name}: cada fuente debe ser 'Medio | https://url'")
                 fuentes.append((nombre.strip(), url))
+            imagen = None
+            if d.get("imagen"):
+                if not re.match(r"^https://upload\.wikimedia\.org/\S+$", d["imagen"]):
+                    raise ErrorNota(f"{f.name}: 'imagen' debe ser una URL de https://upload.wikimedia.org/")
+                for k in ("imagen_credito", "imagen_fuente", "imagen_alt"):
+                    if not d.get(k): raise ErrorNota(f"{f.name}: con 'imagen' es obligatorio '{k}'")
+                if not d["imagen_fuente"].startswith("https://commons.wikimedia.org/"):
+                    raise ErrorNota(f"{f.name}: 'imagen_fuente' debe ser la página del archivo en commons.wikimedia.org")
+                imagen = dict(url=d["imagen"], credito=d["imagen_credito"], fuente=d["imagen_fuente"], alt=d["imagen_alt"])
             if d.get("borrador", "").lower() in ("si", "sí", "true"):
                 continue
             slug = d.get("slug") or slugify(d["titulo"])
@@ -136,7 +145,7 @@ def cargar_notas():
                 ia=d.get("ia", "si").lower() in ("si", "sí", "true"),
                 corregida=d.get("correccion", ""), slug=slug,
                 url=f"/noticias/{fecha:%Y/%m}/{slug}/", cuerpo=markdown(cuerpo),
-                lectura=max(1, round(palabras(cuerpo) / 220)), archivo=f.name))
+                lectura=max(1, round(palabras(cuerpo) / 220)), archivo=f.name, imagen=imagen))
         except ErrorNota as e:
             errores.append(str(e))
     notas.sort(key=lambda n: n["fecha"], reverse=True)
@@ -172,6 +181,11 @@ h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;color:var(--tint
 .nota.destacada{grid-column:1/-1}@media(min-width:900px){.nota.destacada{flex-direction:row}.nota.destacada .banda{flex:0 0 46%;aspect-ratio:auto;min-height:280px}.nota.destacada h2{font-size:2rem}}
 .banda{aspect-ratio:16/7;display:grid;place-items:center;position:relative;overflow:hidden;color:rgba(255,255,255,.9);background:linear-gradient(140deg,var(--c1),var(--c2))}
 .banda .ic{width:34%;height:60%;max-width:120px}
+.banda.con-foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.16,.84,.24,1)}
+.banda.con-foto .tema{z-index:1}
+.nota:hover .banda.con-foto img{transform:scale(1.05)}
+.foto{margin:0 0 20px}.foto img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px;display:block;background:var(--linea)}
+.foto figcaption{font-size:.82rem;color:var(--suave);margin-top:8px}.foto figcaption a{color:inherit}
 .banda .tema{position:absolute;left:14px;top:12px;background:rgba(0,0,0,.25);color:#fff;font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px}
 .nota .cuerpo{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px}
 .nota h2{font-size:1.2rem}.nota p{margin:0;color:var(--suave)}
@@ -229,7 +243,7 @@ def pagina(titulo, descripcion, url, cuerpo, actual="noticias", extra_head="", t
 <meta property="og:title" content="{esc(titulo)}">
 <meta property="og:description" content="{esc(descripcion)}">
 <meta property="og:url" content="{DOMINIO}{url}">
-<meta property="og:image" content="{DOMINIO}{imagen}">
+<meta property="og:image" content="{imagen if imagen.startswith("http") else DOMINIO + imagen}">
 <meta property="og:locale" content="es_MX">
 <meta name="twitter:card" content="summary_large_image">
 {extra_head}
@@ -260,7 +274,7 @@ def pagina(titulo, descripcion, url, cuerpo, actual="noticias", extra_head="", t
 def tarjeta(n, destacada=False):
     nombre, icono = TEMAS[n["tema"]]; c1, c2 = COLORES[n["tema"]]
     return f"""<a class="nota{' destacada' if destacada else ''}" href="{n['url']}">
-  <div class="banda" style="--c1:{c1};--c2:{c2}"><span class="tema">{esc(nombre)}</span><span class="ic i-{icono}" aria-hidden="true"></span></div>
+  <div class="banda{' con-foto' if n['imagen'] else ''}" style="--c1:{c1};--c2:{c2}"><span class="tema">{esc(nombre)}</span>{f'<img src="{esc(n["imagen"]["url"])}" alt="{esc(n["imagen"]["alt"])}" loading="lazy" decoding="async">' if n['imagen'] else f'<span class="ic i-{icono}" aria-hidden="true"></span>'}</div>
   <div class="cuerpo"><p class="meta"><time datetime="{n['fecha'].isoformat()}">{fecha_larga(n['fecha'])}</time> · {n['lectura']} min</p>
   <h2>{esc(n['titulo'])}</h2><p>{esc(n['resumen'])}</p></div>
 </a>"""
@@ -312,13 +326,17 @@ def construir_nota(n, relacionadas):
     ld = json.dumps({"@context":"https://schema.org","@type":"NewsArticle","headline":n["titulo"],"description":n["resumen"],
         "datePublished":n["fecha"].isoformat(),"dateModified":n["fecha"].isoformat(),"author":{"@type":"Organization","name":n["autor"]},
         "publisher":{"@type":"Organization","name":"Vivir en Paz TV","logo":{"@type":"ImageObject","url":DOMINIO+"/assets/favicon.png"}},
-        "mainEntityOfPage":url_abs,"image":[DOMINIO+"/assets/img/presentacion.jpg"],"articleSection":nombre}, ensure_ascii=False)
+        "mainEntityOfPage":url_abs,"image":[n["imagen"]["url"] if n["imagen"] else DOMINIO+"/assets/img/presentacion.jpg"],"articleSection":nombre}, ensure_ascii=False)
     rel = "".join(tarjeta(r) for r in relacionadas)
+    im = n["imagen"]
+    foto = (f'<figure class="foto"><img src="{esc(im["url"])}" alt="{esc(im["alt"])}">'
+            f'<figcaption>Imagen ilustrativa. Foto: <a href="{esc(im["fuente"])}" target="_blank" rel="noopener">{esc(im["credito"])}</a>, vía Wikimedia Commons.</figcaption></figure>') if im else ""
     cuerpo = f"""<div class="env">
 <article class="completa">
   <a class="volver" href="/noticias/tema/{n['tema']}/">← {esc(nombre)}</a>
   <h1>{esc(n['titulo'])}</h1>
   <p class="entrada">{esc(n['resumen'])}</p>
+  {foto}
   <p class="meta"><span>{esc(n['autor'])}</span><time datetime="{n['fecha'].isoformat()}">{fecha_larga(n['fecha'])}, {n['fecha']:%H:%M} h</time><span>{n['lectura']} min de lectura</span></p>
   <div class="texto">{n['cuerpo']}</div>
   {correccion}
@@ -334,7 +352,8 @@ def construir_nota(n, relacionadas):
 {f'<section class="relacionadas"><h2>Más de {esc(nombre)}</h2><div class="rejilla">{rel}</div></section>' if rel else ''}
 </div>"""
     escribir(n["url"], pagina(f"{n['titulo']} | Vivir en Paz TV", n["resumen"], n["url"], cuerpo,
-                              extra_head=f'<script type="application/ld+json">{ld}</script>', tipo="article"))
+                              extra_head=f'<script type="application/ld+json">{ld}</script>', tipo="article",
+                              imagen=(n["imagen"]["url"] if n["imagen"] else "/assets/img/presentacion.jpg")))
 
 def construir_feeds(notas):
     ahora = datetime.now(MX)
@@ -352,7 +371,8 @@ def construir_feeds(notas):
     (SALIDA / "noticias" / "ultimas.json").write_text(json.dumps([{
         "titulo": n["titulo"], "resumen": n["resumen"], "url": n["url"], "tema": TEMAS[n["tema"]][0],
         "icono": TEMAS[n["tema"]][1], "colores": COLORES[n["tema"]], "fecha": n["fecha"].isoformat(),
-        "fecha_texto": fecha_larga(n["fecha"])} for n in notas[:7]], ensure_ascii=False), encoding="utf-8")
+        "fecha_texto": fecha_larga(n["fecha"]), "imagen": (n["imagen"] or {}).get("url"),
+        "imagen_alt": (n["imagen"] or {}).get("alt")} for n in notas[:7]], ensure_ascii=False), encoding="utf-8")
 
 def main():
     solo_validar = "--validar" in sys.argv
