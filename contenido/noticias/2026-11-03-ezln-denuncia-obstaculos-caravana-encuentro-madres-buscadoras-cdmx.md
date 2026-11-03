@@ -1,5 +1,5 @@
 ---
-titulo: "EZLN denuncia obstáculos a su caravana de 1,530 zapatistas para reunirse con madres buscadoras en la CDMX"
+titulo: "EZLN denuncia obstáculos a su caravana para reunirse con madres buscadoras en la CDMX"
 fecha: 2026-11-03T06:03:00-06:00
 tema: nacional
 resumen: "En un comunicado del 2 de noviembre, el EZLN acusó a autoridades federales, de Chiapas y municipales de provocaciones para frenar su viaje a la capital, donde prevé un encuentro con familias de personas desaparecidas."

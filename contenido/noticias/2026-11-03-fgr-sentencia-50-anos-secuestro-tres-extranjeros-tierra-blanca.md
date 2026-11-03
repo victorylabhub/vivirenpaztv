@@ -1,5 +1,5 @@
 ---
-titulo: "FGR obtiene sentencia de 50 años de prisión contra dos hombres por secuestrar a tres extranjeros en Veracruz"
+titulo: "Dan 50 años de prisión a dos hombres por secuestrar a tres extranjeros en Tierra Blanca, Veracruz"
 fecha: 2026-11-03T06:27:00-06:00
 tema: justicia
 resumen: "Óscar N. y Porfirio N. fueron condenados a 50 años de prisión por el secuestro de tres personas extranjeras en Tierra Blanca, Veracruz, en 2023, informó la Fiscalía General de la República."

@@ -1,5 +1,5 @@
 ---
-titulo: "La FILIJ regresa al Cenart del 13 al 22 de noviembre con casi 35 mil títulos y más de 1,500 actividades"
+titulo: "La FILIJ vuelve al Cenart del 13 al 22 de noviembre con casi 35 mil títulos y 1,500 actividades"
 fecha: 2026-11-03T06:54:00-06:00
 tema: cultura
 resumen: "La 44 Feria Internacional del Libro Infantil y Juvenil, organizada por el Fondo de Cultura Económica, se realizará con entrada gratuita en el Centro Nacional de las Artes, en Coyoacán."

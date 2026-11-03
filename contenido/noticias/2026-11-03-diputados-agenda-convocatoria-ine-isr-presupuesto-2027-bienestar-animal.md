@@ -1,5 +1,5 @@
 ---
-titulo: "Diputados prevén votar la convocatoria para la presidencia del INE y cambios al ISR el 3 de noviembre"
+titulo: "Diputados prevén votar la convocatoria para presidir el INE y cambios al ISR el 3 de noviembre"
 fecha: 2026-11-03T06:24:00-06:00
 tema: politica
 resumen: "Ricardo Monreal informó que el pleno discutirá el 3 de noviembre la convocatoria para elegir a la nueva presidencia del INE y cambios al ISR; el Presupuesto 2027 se debatirá del 9 al 11 de noviembre."

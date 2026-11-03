@@ -1,5 +1,5 @@
 ---
-titulo: "Octubre cierra con 1,215 víctimas de homicidio doloso en el conteo preliminar; Edomex y Sinaloa encabezan"
+titulo: "Octubre cierra con 1,215 víctimas de homicidio doloso en conteo preliminar; Edomex lidera"
 fecha: 2026-11-03T06:12:00-06:00
 tema: seguridad
 resumen: "El conteo diario preliminar registró 1,215 víctimas de homicidio doloso en octubre de 2026, 115 más que en septiembre; Estado de México, Sinaloa y Guanajuato concentraron el mayor número."

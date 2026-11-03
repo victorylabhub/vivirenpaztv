@@ -1,5 +1,5 @@
 ---
-titulo: "Mayor vigilancia en la frontera empuja a migrantes hacia rutas marítimas más riesgosas en el Pacífico"
+titulo: "Mayor vigilancia fronteriza empuja a migrantes hacia rutas marítimas riesgosas en el Pacífico"
 fecha: 2026-11-03T06:39:00-06:00
 tema: sociedad
 resumen: "Activistas y especialistas en Tijuana advierten que drones, sensores y más agentes en la frontera con EU llevan a personas migrantes a intentar el cruce por mar, con riesgos de naufragio, hipotermia y extorsión."

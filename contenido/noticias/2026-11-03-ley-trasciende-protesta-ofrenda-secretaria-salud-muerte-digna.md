@@ -1,5 +1,5 @@
 ---
-titulo: "Con una ofrenda frente a la Secretaría de Salud, activistas exigen avanzar en la Ley Trasciende sobre muerte digna"
+titulo: "Con una ofrenda ante la Secretaría de Salud, activistas exigen avanzar la Ley Trasciende"
 fecha: 2026-11-03T06:42:00-06:00
 tema: sociedad
 resumen: "Integrantes del movimiento Ley Trasciende protestaron el 2 de noviembre en Polanco para exigir a la Secretaría de Salud la opinión técnica que pidió el Congreso sobre su propuesta de muerte digna."

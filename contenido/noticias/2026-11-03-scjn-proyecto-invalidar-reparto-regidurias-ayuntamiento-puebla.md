@@ -1,5 +1,5 @@
 ---
-titulo: "La Suprema Corte discutirá un proyecto para invalidar el nuevo reparto de regidurías en el Ayuntamiento de Puebla"
+titulo: "La Suprema Corte discutirá invalidar el nuevo reparto de regidurías en el Ayuntamiento de Puebla"
 fecha: 2026-11-03T06:30:00-06:00
 tema: justicia
 resumen: "Un proyecto del ministro Arístides Rodrigo Guerrero propone invalidar la fórmula con la que el Congreso de Puebla redujo las regidurías de representación proporcional en la capital del estado."

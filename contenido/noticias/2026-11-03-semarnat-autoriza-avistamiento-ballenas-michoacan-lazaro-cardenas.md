@@ -1,5 +1,5 @@
 ---
-titulo: "Semarnat autoriza el avistamiento regulado de ballenas en la costa de Michoacán para la temporada 2026-2027"
+titulo: "Semarnat autoriza el avistamiento regulado de ballenas en la costa de Michoacán por primera vez"
 fecha: 2026-11-03T06:57:00-06:00
 tema: medio-ambiente
 resumen: "Un acuerdo publicado en el Diario Oficial de la Federación reconoce una zona frente a la costa de Michoacán para observar ballenas del 15 de diciembre de 2026 al 20 de marzo de 2027, con permisos y reglas."

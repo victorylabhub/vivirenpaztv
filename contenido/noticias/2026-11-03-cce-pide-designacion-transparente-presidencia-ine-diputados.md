@@ -1,5 +1,5 @@
 ---
-titulo: "El CCE pide a Diputados una designación transparente y con perfil técnico para la presidencia del INE"
+titulo: "El CCE pide a Diputados una designación transparente y técnica para la presidencia del INE"
 fecha: 2026-11-03T06:21:00-06:00
 tema: politica
 resumen: "El Consejo Coordinador Empresarial pidió el 2 de noviembre reglas claras y verificables para elegir a la nueva presidencia del INE y anteponer experiencia electoral e integridad a consideraciones políticas."

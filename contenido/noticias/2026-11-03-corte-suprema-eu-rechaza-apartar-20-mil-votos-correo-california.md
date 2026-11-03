@@ -1,5 +1,5 @@
 ---
-titulo: "Corte Suprema de EU rechaza la petición del gobierno de Trump de apartar 20 mil votos por correo en California"
+titulo: "Corte Suprema de EU rechaza apartar 20 mil votos por correo en California, como pedía Trump"
 fecha: 2026-11-03T06:51:00-06:00
 tema: internacional
 resumen: "En vísperas de las elecciones intermedias del 3 de noviembre, la Corte Suprema negó la solicitud de emergencia para separar boletas de unos 20 mil votantes de California cuya ciudadanía cuestionaba el gobierno federal."
